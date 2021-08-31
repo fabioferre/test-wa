@@ -14,7 +14,7 @@ import { ExamsModule } from './exams/exams.module';
       username: 'root',
       password: 'root',
       database: 'test',
-      entities: [],
+      entities: ["dist/**/*.entity{.ts,.js}"],
       synchronize: true,
     }),
     LaboratoryModule,

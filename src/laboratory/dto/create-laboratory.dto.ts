@@ -1,8 +1,6 @@
 import { IsNotEmpty } from "class-validator";
 
 export class CreateLaboratoryDto {
-    @IsNotEmpty({'message':'id obrigatorio'})
-    id:number;
 
     @IsNotEmpty()
     name:string;
@@ -10,8 +8,6 @@ export class CreateLaboratoryDto {
     @IsNotEmpty()
     address:string;
 
-    @IsNotEmpty()
-    status:boolean;
 
 
 }

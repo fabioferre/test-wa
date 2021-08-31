@@ -25,7 +25,7 @@ AppModule = __decorate([
                 username: 'root',
                 password: 'root',
                 database: 'test',
-                entities: [],
+                entities: ["dist/**/*.entity{.ts,.js}"],
                 synchronize: true,
             }),
             laboratory_module_1.LaboratoryModule,

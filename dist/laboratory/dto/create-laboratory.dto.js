@@ -14,10 +14,6 @@ const class_validator_1 = require("class-validator");
 class CreateLaboratoryDto {
 }
 __decorate([
-    class_validator_1.IsNotEmpty({ 'message': 'id obrigatorio' }),
-    __metadata("design:type", Number)
-], CreateLaboratoryDto.prototype, "id", void 0);
-__decorate([
     class_validator_1.IsNotEmpty(),
     __metadata("design:type", String)
 ], CreateLaboratoryDto.prototype, "name", void 0);
@@ -25,9 +21,5 @@ __decorate([
     class_validator_1.IsNotEmpty(),
     __metadata("design:type", String)
 ], CreateLaboratoryDto.prototype, "address", void 0);
-__decorate([
-    class_validator_1.IsNotEmpty(),
-    __metadata("design:type", Boolean)
-], CreateLaboratoryDto.prototype, "status", void 0);
 exports.CreateLaboratoryDto = CreateLaboratoryDto;
 //# sourceMappingURL=create-laboratory.dto.js.map
