@@ -34,7 +34,7 @@ export class CreateExamDto {
     @ApiProperty({})
     @IsNotEmpty()
     @IsArray()
-    laboratoryIds:Array<[]>;
+    laboratoryIds:Array<[number]>;
 
 
    

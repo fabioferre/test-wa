@@ -12,12 +12,21 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ExamsController = void 0;
+exports.ExamsController = exports.FilterExamDto = void 0;
 const common_1 = require("@nestjs/common");
 const exams_service_1 = require("./exams.service");
 const create_exam_dto_1 = require("./dto/create-exam.dto");
 const update_exam_dto_1 = require("./dto/update-exam.dto");
 const swagger_1 = require("@nestjs/swagger");
+const class_validator_1 = require("class-validator");
+class FilterExamDto {
+}
+__decorate([
+    swagger_1.ApiProperty(),
+    class_validator_1.IsNotEmpty(),
+    __metadata("design:type", String)
+], FilterExamDto.prototype, "name", void 0);
+exports.FilterExamDto = FilterExamDto;
 let ExamsController = class ExamsController {
     constructor(examsService) {
         this.examsService = examsService;
@@ -25,8 +34,8 @@ let ExamsController = class ExamsController {
     create(createExamDto) {
         return this.examsService.create(createExamDto);
     }
-    findAll(filter) {
-        return this.examsService.findAll(filter);
+    findAll() {
+        return this.examsService.findAll();
     }
     findOne(id) {
         return this.examsService.findOne(+id);
@@ -40,10 +49,13 @@ let ExamsController = class ExamsController {
     removeAll() {
         return this.examsService.removeAll();
     }
+    findFromName(filter) {
+        return this.examsService.findFromName(filter);
+    }
 };
 __decorate([
     common_1.Post(),
-    swagger_1.ApiBody({ type: create_exam_dto_1.CreateExamDto, description: 'criar um exame novo' }),
+    swagger_1.ApiBody({ type: create_exam_dto_1.CreateExamDto, description: 'Criar um exame novo' }),
     __param(0, common_1.Body()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [create_exam_dto_1.CreateExamDto]),
@@ -51,9 +63,8 @@ __decorate([
 ], ExamsController.prototype, "create", null);
 __decorate([
     common_1.Get(),
-    __param(0, common_1.Body()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Object]),
+    __metadata("design:paramtypes", []),
     __metadata("design:returntype", void 0)
 ], ExamsController.prototype, "findAll", null);
 __decorate([
@@ -84,6 +95,14 @@ __decorate([
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", void 0)
 ], ExamsController.prototype, "removeAll", null);
+__decorate([
+    common_1.Post('filter'),
+    swagger_1.ApiBody({ type: FilterExamDto, description: 'Filtrar exames' }),
+    __param(0, common_1.Body()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", void 0)
+], ExamsController.prototype, "findFromName", null);
 ExamsController = __decorate([
     common_1.Controller('exams'),
     __metadata("design:paramtypes", [exams_service_1.ExamsService])

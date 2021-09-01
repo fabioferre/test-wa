@@ -24,10 +24,14 @@ export class ExamsService {
     return this.examRepository.save(examModel)
 
   }
+  findAll() {
+  
+    return this.examRepository.find({ relations: ["laboratories"]});
+  }
 
-  findAll(filter) {
-    let where = filter ? filter : {}
-    return this.examRepository.find({ relations: ["laboratories"], where });
+  findFromName(filter) {
+
+    return this.examRepository.find({ relations: ["laboratories"], where: filter});
   }
 
   findOne(id: number) {

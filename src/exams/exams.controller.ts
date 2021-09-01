@@ -2,24 +2,29 @@ import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/commo
 import { ExamsService } from './exams.service';
 import { CreateExamDto } from './dto/create-exam.dto';
 import { UpdateExamDto } from './dto/update-exam.dto';
-import { ApiBody } from '@nestjs/swagger';
-
+import { ApiBody, ApiParam, ApiProperty, ApiResponse } from '@nestjs/swagger';
+import { IsNotEmpty } from 'class-validator';
+export class FilterExamDto {
+  @ApiProperty()
+  @IsNotEmpty()
+  name:string;
+}
 @Controller('exams')
 export class ExamsController {
   constructor(private readonly examsService: ExamsService) {}
 
   @Post()
-  @ApiBody({type:CreateExamDto, description:'criar um exame novo'})
+  @ApiBody({type:CreateExamDto, description:'Criar um exame novo'})
 
   create(@Body() createExamDto: CreateExamDto) {
     return this.examsService.create(createExamDto);
   }
 
-
   @Get()
-  findAll(@Body() filter) {
-    return this.examsService.findAll(filter);
+  findAll() {
+    return this.examsService.findAll();
   }
+
 
   @Get(':id')
   findOne(@Param('id') id: string) {
@@ -41,5 +46,10 @@ export class ExamsController {
     return this.examsService.removeAll();
   }
 
+  @Post('filter')
+  @ApiBody({type:FilterExamDto, description:'Filtrar exames'})
+  findFromName(@Body() filter) {
+    return this.examsService.findFromName(filter);
+  }
 
 }

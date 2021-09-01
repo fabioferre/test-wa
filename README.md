@@ -26,7 +26,6 @@
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
-## Installation
 
 ## Installation
 
@@ -34,8 +33,11 @@
 $ sudo docker-compose up 
 ```
 
-## Running the without app
+## Documentation Api
 
-```bash
-$ sudo docker-compose up 
-```
+[swagger](http://localhost:3000/api) Para poder acessar a documentação.
+
+  localhost:3000/api
+
+
+

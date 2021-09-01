@@ -18,23 +18,6 @@ services:
             - .:/usr/src/app
             - ./node_modules:/usr/src/app/node_modules
         restart: unless-stopped
-    # wa-prod:
-    #     container_name: wa_prod
-    #     image: wa:1.0.0
-    #     build:
-    #         context: .
-    #         target: production
-    #         dockerfile: ./docker/images/Dockerfile
-    #     command: npm run start:prod
-    #     ports:
-    #         - 3000:3000
-    #         - 9229:9229
-    #     networks:
-    #         - nesjs-network
-    #     volumes:
-    #         - .:/usr/src/app
-    #         - /usr/src/app/node_modules
-    #     restart: unless-stopped
     wa-db:
       image: mysql:5.7
       ports:
