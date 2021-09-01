@@ -48,4 +48,14 @@ $ sudo docker-compose up
 
 
 
+## Extras
+
+  - Atualização de exames: Você pode atualizar os laboratórios dos exames adicionando um array com os ids dos laboratórios [1, 2, 8]
+  - Filtro : para fazer o filtro de um exame, basta colocar no body um json {"name": "exemplo"}
+
+
+
+
+
+
 
