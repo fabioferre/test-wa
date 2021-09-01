@@ -22,22 +22,30 @@
   <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
   [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
-## Description
+## Descrição
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
 
-## Installation
+## Instalação
 
 ```bash
 $ sudo docker-compose up 
 ```
 
-## Documentation Api
+## Execute o projeto
+
+[localhost:3000](http://localhost:3000/api) Para poder acessar o projeto.
+
+  localhost:3000
+
+## Documentação da API
 
 [swagger](http://localhost:3000/api) Para poder acessar a documentação.
 
   localhost:3000/api
+
+
 
 
 
