@@ -14,11 +14,17 @@ const laboratory_entity_1 = require("../../laboratory/entities/laboratory.entity
 const swagger_1 = require("@nestjs/swagger");
 const class_validator_1 = require("class-validator");
 const typeorm_1 = require("typeorm");
-var TypeStatus;
-(function (TypeStatus) {
-    TypeStatus["active"] = "Ativo";
-    TypeStatus["inactive"] = "Inativo";
-})(TypeStatus || (TypeStatus = {}));
+var Status;
+(function (Status) {
+    Status["active"] = "Ativo";
+    Status["inactive"] = "Inativo";
+    Status["default"] = "";
+})(Status || (Status = {}));
+var Type;
+(function (Type) {
+    Type["analysis"] = "analise clinica";
+    Type["image"] = "imagem";
+})(Type || (Type = {}));
 class CreateExamDto {
 }
 __decorate([
@@ -33,12 +39,12 @@ __decorate([
 __decorate([
     swagger_1.ApiProperty({}),
     class_validator_1.IsNotEmpty(),
+    class_validator_1.IsEnum(Type),
     __metadata("design:type", String)
 ], CreateExamDto.prototype, "type", void 0);
 __decorate([
-    swagger_1.ApiProperty({}),
-    class_validator_1.IsNotEmpty(),
-    class_validator_1.IsEnum(TypeStatus),
+    swagger_1.ApiProperty(),
+    class_validator_1.IsEnum(Status),
     __metadata("design:type", String)
 ], CreateExamDto.prototype, "status", void 0);
 __decorate([

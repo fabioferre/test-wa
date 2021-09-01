@@ -30,11 +30,6 @@ __decorate([
     typeorm_1.Column({ nullable: true, default: 'Ativo', }),
     __metadata("design:type", String)
 ], Laboratory.prototype, "status", void 0);
-__decorate([
-    typeorm_1.ManyToMany(() => exam_entity_1.Exam),
-    typeorm_1.JoinTable(),
-    __metadata("design:type", Array)
-], Laboratory.prototype, "exams", void 0);
 Laboratory = __decorate([
     typeorm_1.Entity({ name: 'laboratory' })
 ], Laboratory);

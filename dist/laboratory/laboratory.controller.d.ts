@@ -9,4 +9,5 @@ export declare class LaboratoryController {
     findOne(id: string): Promise<import("./entities/laboratory.entity").Laboratory>;
     update(id: string, updateLaboratoryDto: UpdateLaboratoryDto): Promise<import("typeorm").UpdateResult>;
     remove(id: string): Promise<import("typeorm").DeleteResult>;
+    removeAll(): Promise<import("typeorm").DeleteResult>;
 }

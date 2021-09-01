@@ -1,10 +1,10 @@
 import { ApiProperty } from "@nestjs/swagger";
 import { IsEnum, IsNotEmpty } from "class-validator";
-enum TypeStatus{
+
+enum Status{
     active = 'Ativo',
     inactive = 'Inativo'
 }
-
 export class CreateLaboratoryDto {
     @ApiProperty()
     @IsNotEmpty()
@@ -15,9 +15,10 @@ export class CreateLaboratoryDto {
     address:string;
 
     @ApiProperty({})
-    @IsNotEmpty()
-    @IsEnum(TypeStatus)
+    @IsEnum(Status)
     status:'Ativo'|'Inativo' ;
+
+
 
 
 

@@ -15,7 +15,4 @@ export class Laboratory {
     @Column({ nullable: true, default: 'Ativo',})
     status: string;
 
-    @ManyToMany(() => Exam)
-    @JoinTable()
-    exams: Exam[];
 }

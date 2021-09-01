@@ -33,4 +33,8 @@ export class LaboratoryService {
   remove(id: number) {
     return this.laboratoryRepository.delete(id);
   }
+
+  removeAll() {
+    return this.laboratoryRepository.delete({});
+  }
 }

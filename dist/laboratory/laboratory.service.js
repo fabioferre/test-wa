@@ -36,6 +36,9 @@ let LaboratoryService = class LaboratoryService {
     remove(id) {
         return this.laboratoryRepository.delete(id);
     }
+    removeAll() {
+        return this.laboratoryRepository.delete({});
+    }
 };
 LaboratoryService = __decorate([
     common_1.Injectable(),

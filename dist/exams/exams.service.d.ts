@@ -8,8 +8,9 @@ export declare class ExamsService {
     private laboratoryRepository;
     constructor(examRepository: Repository<Exam>, laboratoryRepository: Repository<Laboratory>);
     create(createExamDto: CreateExamDto): Promise<Exam>;
-    findAll(): Promise<Exam[]>;
+    findAll(filter: any): Promise<Exam[]>;
     findOne(id: number): Promise<Exam>;
     update(id: number, updateExamDto: UpdateExamDto): Promise<import("typeorm").UpdateResult>;
     remove(id: number): Promise<import("typeorm").DeleteResult>;
+    removeAll(): Promise<import("typeorm").DeleteResult>;
 }

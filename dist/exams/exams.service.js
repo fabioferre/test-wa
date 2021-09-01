@@ -28,8 +28,9 @@ let ExamsService = class ExamsService {
         examModel.laboratories = (await this.laboratoryRepository.findByIds(createExamDto.laboratoryIds)).filter((lab) => lab.status == 'Ativo');
         return this.examRepository.save(examModel);
     }
-    findAll() {
-        return this.examRepository.find({ relations: ["laboratories"] });
+    findAll(filter) {
+        let where = filter ? filter : {};
+        return this.examRepository.find({ relations: ["laboratories"], where });
     }
     findOne(id) {
         return this.examRepository.findOne(id, { relations: ["laboratories"] });
@@ -43,6 +44,9 @@ let ExamsService = class ExamsService {
     }
     remove(id) {
         return this.examRepository.delete(id);
+    }
+    removeAll() {
+        return this.examRepository.delete({});
     }
 };
 ExamsService = __decorate([

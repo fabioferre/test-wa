@@ -31,4 +31,9 @@ export class LaboratoryController {
   remove(@Param('id') id: string) {
     return this.laboratoryService.remove(+id);
   }
+
+  @Delete('')
+  removeAll() {
+    return this.laboratoryService.removeAll();
+  }
 }

@@ -8,6 +8,7 @@ async function bootstrap() {
   app.useGlobalPipes(
     new ValidationPipe({
       transform: true,
+      skipMissingProperties:true
     }),
   );
   const config = new DocumentBuilder()

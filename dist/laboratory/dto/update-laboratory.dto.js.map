@@ -1,1 +1,1 @@
-{"version":3,"file":"update-laboratory.dto.js","sourceRoot":"","sources":["../../../src/laboratory/dto/update-laboratory.dto.ts"],"names":[],"mappings":";;;AAAA,uDAAmD;AACnD,mEAA8D;AAE9D,MAAa,mBAAoB,SAAQ,0BAAW,CAAC,2CAAmB,CAAC;CAAG;AAA5E,kDAA4E"}
+{"version":3,"file":"update-laboratory.dto.js","sourceRoot":"","sources":["../../../src/laboratory/dto/update-laboratory.dto.ts"],"names":[],"mappings":";;;AAAA,uDAAmD;AAGnD,mEAA8D;AAG9D,MAAa,mBAAoB,SAAQ,0BAAW,CAAC,2CAAmB,CAAC;CAExE;AAFD,kDAEC"}

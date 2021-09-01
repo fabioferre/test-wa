@@ -3,6 +3,6 @@ export declare class Exam {
     id: number;
     name: string;
     type: string;
-    status: string;
+    status: 'Ativo' | 'Inativo';
     laboratories: Laboratory[];
 }

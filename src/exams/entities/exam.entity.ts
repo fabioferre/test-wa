@@ -16,9 +16,9 @@ export class Exam {
     type: string;
 
     @Column({ nullable: true, default: 'Ativo'})
-    status: string;
+    status:'Ativo'|'Inativo' ;
 
-    @ManyToMany(() => Laboratory)
+    @ManyToMany(() => Laboratory,  { cascade: true, onDelete: 'CASCADE' })
     @JoinTable()
     laboratories: Laboratory[];
 

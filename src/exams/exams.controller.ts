@@ -15,9 +15,10 @@ export class ExamsController {
     return this.examsService.create(createExamDto);
   }
 
+
   @Get()
-  findAll() {
-    return this.examsService.findAll();
+  findAll(@Body() filter) {
+    return this.examsService.findAll(filter);
   }
 
   @Get(':id')
@@ -34,4 +35,11 @@ export class ExamsController {
   remove(@Param('id') id: string) {
     return this.examsService.remove(+id);
   }
+
+  @Delete('')
+  removeAll() {
+    return this.examsService.removeAll();
+  }
+
+
 }

@@ -36,6 +36,9 @@ let LaboratoryController = class LaboratoryController {
     remove(id) {
         return this.laboratoryService.remove(+id);
     }
+    removeAll() {
+        return this.laboratoryService.removeAll();
+    }
 };
 __decorate([
     common_1.Post(),
@@ -72,6 +75,12 @@ __decorate([
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", void 0)
 ], LaboratoryController.prototype, "remove", null);
+__decorate([
+    common_1.Delete(''),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", void 0)
+], LaboratoryController.prototype, "removeAll", null);
 LaboratoryController = __decorate([
     common_1.Controller('laboratory'),
     __metadata("design:paramtypes", [laboratory_service_1.LaboratoryService])

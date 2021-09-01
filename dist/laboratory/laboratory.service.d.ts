@@ -10,4 +10,5 @@ export declare class LaboratoryService {
     findOne(id: number): Promise<Laboratory>;
     update(id: number, updateLaboratoryDto: UpdateLaboratoryDto): Promise<import("typeorm").UpdateResult>;
     remove(id: number): Promise<import("typeorm").DeleteResult>;
+    removeAll(): Promise<import("typeorm").DeleteResult>;
 }

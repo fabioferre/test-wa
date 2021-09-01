@@ -25,8 +25,8 @@ let ExamsController = class ExamsController {
     create(createExamDto) {
         return this.examsService.create(createExamDto);
     }
-    findAll() {
-        return this.examsService.findAll();
+    findAll(filter) {
+        return this.examsService.findAll(filter);
     }
     findOne(id) {
         return this.examsService.findOne(+id);
@@ -36,6 +36,9 @@ let ExamsController = class ExamsController {
     }
     remove(id) {
         return this.examsService.remove(+id);
+    }
+    removeAll() {
+        return this.examsService.removeAll();
     }
 };
 __decorate([
@@ -48,8 +51,9 @@ __decorate([
 ], ExamsController.prototype, "create", null);
 __decorate([
     common_1.Get(),
+    __param(0, common_1.Body()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
+    __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", void 0)
 ], ExamsController.prototype, "findAll", null);
 __decorate([
@@ -74,6 +78,12 @@ __decorate([
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", void 0)
 ], ExamsController.prototype, "remove", null);
+__decorate([
+    common_1.Delete(''),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", void 0)
+], ExamsController.prototype, "removeAll", null);
 ExamsController = __decorate([
     common_1.Controller('exams'),
     __metadata("design:paramtypes", [exams_service_1.ExamsService])

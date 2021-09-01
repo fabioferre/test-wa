@@ -31,7 +31,7 @@ __decorate([
     __metadata("design:type", String)
 ], Exam.prototype, "status", void 0);
 __decorate([
-    typeorm_1.ManyToMany(() => laboratory_entity_1.Laboratory),
+    typeorm_1.ManyToMany(() => laboratory_entity_1.Laboratory, { cascade: true, onDelete: 'CASCADE' }),
     typeorm_1.JoinTable(),
     __metadata("design:type", Array)
 ], Exam.prototype, "laboratories", void 0);

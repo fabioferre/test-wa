@@ -25,8 +25,9 @@ export class ExamsService {
 
   }
 
-  findAll() {
-    return this.examRepository.find({ relations: ["laboratories"] });
+  findAll(filter) {
+    let where = filter ? filter : {}
+    return this.examRepository.find({ relations: ["laboratories"], where });
   }
 
   findOne(id: number) {
@@ -45,5 +46,9 @@ export class ExamsService {
 
   remove(id: number) {
     return this.examRepository.delete(id);
+  }
+
+  removeAll() {
+    return this.examRepository.delete({});
   }
 }
