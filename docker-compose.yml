@@ -16,7 +16,7 @@ services:
             - nesjs-network
         volumes:
             - .:/usr/src/app
-            - ./node_modules:/usr/src/app/node_modules
+            - /usr/src/app/node_modules
         restart: unless-stopped
     wa-db:
       image: mysql:5.7
