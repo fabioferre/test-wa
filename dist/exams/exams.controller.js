@@ -17,6 +17,7 @@ const common_1 = require("@nestjs/common");
 const exams_service_1 = require("./exams.service");
 const create_exam_dto_1 = require("./dto/create-exam.dto");
 const update_exam_dto_1 = require("./dto/update-exam.dto");
+const swagger_1 = require("@nestjs/swagger");
 let ExamsController = class ExamsController {
     constructor(examsService) {
         this.examsService = examsService;
@@ -39,6 +40,7 @@ let ExamsController = class ExamsController {
 };
 __decorate([
     common_1.Post(),
+    swagger_1.ApiBody({ type: create_exam_dto_1.CreateExamDto, description: 'criar um exame novo' }),
     __param(0, common_1.Body()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [create_exam_dto_1.CreateExamDto]),

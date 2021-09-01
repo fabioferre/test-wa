@@ -10,16 +10,42 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CreateExamDto = void 0;
+const laboratory_entity_1 = require("../../laboratory/entities/laboratory.entity");
+const swagger_1 = require("@nestjs/swagger");
 const class_validator_1 = require("class-validator");
+const typeorm_1 = require("typeorm");
+var TypeStatus;
+(function (TypeStatus) {
+    TypeStatus["active"] = "Ativo";
+    TypeStatus["inactive"] = "Inativo";
+})(TypeStatus || (TypeStatus = {}));
 class CreateExamDto {
 }
 __decorate([
+    typeorm_1.PrimaryGeneratedColumn(),
+    __metadata("design:type", Number)
+], CreateExamDto.prototype, "id", void 0);
+__decorate([
+    swagger_1.ApiProperty(),
     class_validator_1.IsNotEmpty(),
     __metadata("design:type", String)
 ], CreateExamDto.prototype, "name", void 0);
 __decorate([
+    swagger_1.ApiProperty({}),
     class_validator_1.IsNotEmpty(),
     __metadata("design:type", String)
 ], CreateExamDto.prototype, "type", void 0);
+__decorate([
+    swagger_1.ApiProperty({}),
+    class_validator_1.IsNotEmpty(),
+    class_validator_1.IsEnum(TypeStatus),
+    __metadata("design:type", String)
+], CreateExamDto.prototype, "status", void 0);
+__decorate([
+    swagger_1.ApiProperty({}),
+    class_validator_1.IsNotEmpty(),
+    class_validator_1.IsArray(),
+    __metadata("design:type", Array)
+], CreateExamDto.prototype, "laboratoryIds", void 0);
 exports.CreateExamDto = CreateExamDto;
 //# sourceMappingURL=create-exam.dto.js.map

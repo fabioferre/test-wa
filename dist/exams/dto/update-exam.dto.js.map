@@ -1,1 +1,1 @@
-{"version":3,"file":"update-exam.dto.js","sourceRoot":"","sources":["../../../src/exams/dto/update-exam.dto.ts"],"names":[],"mappings":";;;AAAA,uDAAmD;AACnD,uDAAkD;AAElD,MAAa,aAAc,SAAQ,0BAAW,CAAC,+BAAa,CAAC;CAAG;AAAhE,sCAAgE"}
+{"version":3,"file":"update-exam.dto.js","sourceRoot":"","sources":["../../../src/exams/dto/update-exam.dto.ts"],"names":[],"mappings":";;;;;;;;;;;;AAAA,uDAAmD;AACnD,qDAA0C;AAC1C,uDAAkD;AAElD,MAAa,aAAc,SAAQ,0BAAW,CAAC,+BAAa,CAAC;CAK5D;AADG;IADC,yBAAO,EAAE;8BACI,KAAK;oDAAK;AAJ5B,sCAKC"}

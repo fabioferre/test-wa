@@ -16,7 +16,7 @@ services:
             - nesjs-network
         volumes:
             - .:/usr/src/app
-            - /usr/src/app/node_modules
+            - ./node_modules:/usr/src/app/node_modules
         restart: unless-stopped
     # wa-prod:
     #     container_name: wa_prod

@@ -2,12 +2,15 @@ import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/commo
 import { ExamsService } from './exams.service';
 import { CreateExamDto } from './dto/create-exam.dto';
 import { UpdateExamDto } from './dto/update-exam.dto';
+import { ApiBody } from '@nestjs/swagger';
 
 @Controller('exams')
 export class ExamsController {
   constructor(private readonly examsService: ExamsService) {}
 
   @Post()
+  @ApiBody({type:CreateExamDto, description:'criar um exame novo'})
+
   create(@Body() createExamDto: CreateExamDto) {
     return this.examsService.create(createExamDto);
   }

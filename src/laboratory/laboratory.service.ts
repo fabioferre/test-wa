@@ -1,26 +1,36 @@
+import { Laboratory } from 'src/laboratory/entities/laboratory.entity';
 import { Injectable } from '@nestjs/common';
 import { CreateLaboratoryDto } from './dto/create-laboratory.dto';
 import { UpdateLaboratoryDto } from './dto/update-laboratory.dto';
+import { Repository } from 'typeorm';
+import { InjectRepository } from '@nestjs/typeorm';
 
 @Injectable()
 export class LaboratoryService {
+ 
+  constructor(
+    @InjectRepository(Laboratory)
+    private laboratoryRepository: Repository<Laboratory>,
+  ) {}
+
   create(createLaboratoryDto: CreateLaboratoryDto) {
-    return 'This action adds a new laboratory';
+    
+    return this.laboratoryRepository.save(createLaboratoryDto);
   }
 
   findAll() {
-    return `This action returns all laboratory`;
+    return this.laboratoryRepository.find();
   }
 
   findOne(id: number) {
-    return `This action returns a #${id} laboratory`;
+    return this.laboratoryRepository.findOne(id);
   }
 
   update(id: number, updateLaboratoryDto: UpdateLaboratoryDto) {
-    return `This action updates a #${id} laboratory`;
+    return this.laboratoryRepository.update(id, updateLaboratoryDto)
   }
 
   remove(id: number) {
-    return `This action removes a #${id} laboratory`;
+    return this.laboratoryRepository.delete(id);
   }
 }

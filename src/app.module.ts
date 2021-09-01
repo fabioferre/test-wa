@@ -4,6 +4,8 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { LaboratoryModule } from './laboratory/laboratory.module';
 import { ExamsModule } from './exams/exams.module';
+import { Laboratory } from './laboratory/entities/laboratory.entity';
+import { Exam } from './exams/entities/exam.entity';
 
 @Module({
   imports: [
@@ -14,7 +16,7 @@ import { ExamsModule } from './exams/exams.module';
       username: 'root',
       password: 'root',
       database: 'test',
-      entities: ["dist/**/*.entity{.ts,.js}"],
+      autoLoadEntities: true,
       synchronize: true,
     }),
     LaboratoryModule,
