@@ -80,7 +80,7 @@ __decorate([
     __param(1, common_1.Body()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String, update_exam_dto_1.UpdateExamDto]),
-    __metadata("design:returntype", void 0)
+    __metadata("design:returntype", Promise)
 ], ExamsController.prototype, "update", null);
 __decorate([
     common_1.Delete(':id'),
@@ -97,6 +97,7 @@ __decorate([
 ], ExamsController.prototype, "removeAll", null);
 __decorate([
     common_1.Post('filter'),
+    common_1.HttpCode(common_1.HttpStatus.OK),
     swagger_1.ApiBody({ type: FilterExamDto, description: 'Filtrar exames' }),
     __param(0, common_1.Body()),
     __metadata("design:type", Function),

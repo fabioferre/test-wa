@@ -25,7 +25,7 @@ let ExamsService = class ExamsService {
     }
     async create(createExamDto) {
         const examModel = this.examRepository.create(createExamDto);
-        examModel.laboratories = (await this.laboratoryRepository.findByIds(createExamDto.laboratoryIds)).filter((lab) => lab.status == 'Ativo');
+        examModel.laboratories = await this.laboratoryRepository.find({ id: typeorm_2.In(createExamDto.laboratoryIds), status: 'Ativo' });
         return this.examRepository.save(examModel);
     }
     findAll() {
@@ -39,10 +39,11 @@ let ExamsService = class ExamsService {
     }
     async update(id, updateExamDto) {
         const examModel = await this.examRepository.findOne(id);
-        examModel.laboratories = (await this.laboratoryRepository.findByIds(updateExamDto.laboratoryIds)).filter((lab) => lab.status == 'Ativo');
-        this.examRepository.save(examModel);
-        delete updateExamDto.laboratoryIds;
-        return this.examRepository.update(id, updateExamDto);
+        examModel.laboratories = await this.laboratoryRepository.find({ id: typeorm_2.In(updateExamDto.laboratoryIds), status: 'Ativo' });
+        return this.examRepository.save(Object.assign(Object.assign({}, examModel), updateExamDto)).then((exam) => {
+            delete exam.laboratoryIds;
+            return exam;
+        });
     }
     remove(id) {
         return this.examRepository.delete(id);

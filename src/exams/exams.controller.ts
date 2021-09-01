@@ -1,9 +1,10 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, HttpCode, HttpStatus, ForbiddenException } from '@nestjs/common';
 import { ExamsService } from './exams.service';
 import { CreateExamDto } from './dto/create-exam.dto';
 import { UpdateExamDto } from './dto/update-exam.dto';
 import { ApiBody, ApiParam, ApiProperty, ApiResponse } from '@nestjs/swagger';
 import { IsNotEmpty } from 'class-validator';
+import { Exam } from './entities/exam.entity';
 export class FilterExamDto {
   @ApiProperty()
   @IsNotEmpty()
@@ -32,7 +33,7 @@ export class ExamsController {
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateExamDto: UpdateExamDto) {
+  update(@Param('id') id: string, @Body() updateExamDto: UpdateExamDto):Promise<Exam>{
     return this.examsService.update(+id, updateExamDto);
   }
 
@@ -47,6 +48,7 @@ export class ExamsController {
   }
 
   @Post('filter')
+  @HttpCode(HttpStatus.OK)
   @ApiBody({type:FilterExamDto, description:'Filtrar exames'})
   findFromName(@Body() filter) {
     return this.examsService.findFromName(filter);

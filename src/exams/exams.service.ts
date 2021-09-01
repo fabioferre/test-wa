@@ -1,7 +1,7 @@
 import { HttpStatus, Injectable, Res } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Laboratory } from 'src/laboratory/entities/laboratory.entity';
-import { Repository } from 'typeorm';
+import { Repository,  In } from 'typeorm';
 import { CreateExamDto } from './dto/create-exam.dto';
 import { UpdateExamDto } from './dto/update-exam.dto';
 import { Exam } from './entities/exam.entity';
@@ -19,9 +19,9 @@ export class ExamsService {
 
  async create(createExamDto: CreateExamDto) {
     const examModel =  this.examRepository.create(createExamDto);
-    examModel.laboratories =  (await this.laboratoryRepository.findByIds(createExamDto.laboratoryIds)).filter((lab:any)=> lab.status == 'Ativo')
+    examModel.laboratories =  await this.laboratoryRepository.find({id:In( createExamDto.laboratoryIds), status:'Ativo' });
     
-    return this.examRepository.save(examModel)
+    return this.examRepository.save(examModel);
 
   }
   findAll() {
@@ -41,11 +41,14 @@ export class ExamsService {
   async update(id: number, updateExamDto: UpdateExamDto) {
 
     const examModel = await this.examRepository.findOne(id);
-    examModel.laboratories = (await this.laboratoryRepository.findByIds(updateExamDto.laboratoryIds)).filter((lab:any)=> lab.status == 'Ativo')
-    this.examRepository.save(examModel)
-    delete  updateExamDto.laboratoryIds
+    examModel.laboratories = await this.laboratoryRepository.find({id:In( updateExamDto.laboratoryIds), status:'Ativo' });
 
-    return this.examRepository.update(id, updateExamDto);
+    return  this.examRepository.save({...examModel, ...updateExamDto, }).then((exam)=> {
+      delete exam.laboratoryIds;
+      return exam;
+    })
+
+
   }
 
   remove(id: number) {

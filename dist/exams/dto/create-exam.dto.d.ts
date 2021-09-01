@@ -3,5 +3,5 @@ export declare class CreateExamDto {
     name: string;
     type: 'analise clinica' | 'imagem';
     status: 'Ativo' | 'Inativo';
-    laboratoryIds: Array<[number]>;
+    laboratoryIds: Array<number>;
 }

@@ -11,7 +11,14 @@ export declare class ExamsService {
     findAll(): Promise<Exam[]>;
     findFromName(filter: any): Promise<Exam[]>;
     findOne(id: number): Promise<Exam>;
-    update(id: number, updateExamDto: UpdateExamDto): Promise<import("typeorm").UpdateResult>;
+    update(id: number, updateExamDto: UpdateExamDto): Promise<{
+        id: number;
+        name: string;
+        type: string;
+        status: "Ativo" | "Inativo";
+        laboratoryIds?: number[];
+        laboratories: Laboratory[];
+    } & Exam>;
     remove(id: number): Promise<import("typeorm").DeleteResult>;
     removeAll(): Promise<import("typeorm").DeleteResult>;
 }
